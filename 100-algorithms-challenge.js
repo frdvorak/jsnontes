@@ -24,3 +24,14 @@ for (let i=0; i<len; i++){
 	}
 }
 console.log(b); //[1, 2, 5, 8]
+
+// 3 - Remove duplicates from Array with Object
+let a = [1,2,5,2,1,8];
+obj = {};
+for(let i of a){
+	obj[i] = true;
+}
+console.log(obj); //{1: true, 2: true, 5: true, 8: true}
+// because the key has to be unique it will not store anything that is duplicate, so it's automatically storing only keys that are unique
+let b = Object.keys(obj); //this will give us all the keys in an array
+console.log(b); //["1", "2", "5", "8"]
