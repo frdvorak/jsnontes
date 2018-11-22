@@ -69,4 +69,19 @@ function longestWord(data){
 	}
 	console.log(longestWord);
 }
-longestWord(arr);
+longestWord(arr); //thiswordmustbethelongestforsure
+
+// 7 Find the longest word in a string
+let str = ('It is a beautiful day outside!');
+function longestWord(data){
+	let words = data.split(' ');
+	let longestWord = '';
+	for (i=0; i<words.length; i++){
+		if(words[i].length>longestWord.length){
+			longestWord = words[i];
+		}
+	}
+	console.log(longestWord);
+}
+longestWord(str); //beautiful
+
