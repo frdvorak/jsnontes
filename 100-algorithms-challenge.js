@@ -85,3 +85,11 @@ function longestWord(data){
 }
 longestWord(str); //beautiful
 
+// 8 Find the longest word SORT
+let str = ('It is a beautiful day outside!');
+function longestWord(data){
+	let words = data.split(' ');
+	words.sort((a,b)=>b.length-a.length);
+	console.log(words[0]); //return the first word which is the longest
+}
+longestWord(str); 
