@@ -93,3 +93,30 @@ function longestWord(data){
 	console.log(words[0]); //return the first word which is the longest
 }
 longestWord(str); 
+
+// 9 Reverse string with Reduce
+function reverseWord(word){
+	const reversedWord = word.split('').reduce((a,b)=>b+=a);
+	return reversedWord;
+}
+reverseWord('ahoj'); //joha
+reverseWord('arrays are fun'); //"nuf era syarra"
+
+console.log(aaa);
+var aaa = "Hello World!!";
+
+// 10 Find common characters in 2 strings, ignore repeated letters and white space
+let commonCharacters = function(str1, str2){
+	let one = str1.replace(/ /g,""); //remove empty space
+	let two = str2.replace(/ /g, "");
+	let result = [];
+	for (let i = 0; i<one.length; i++){
+			if (two.indexOf(one[i]) !== -1 && //if 'one[i]' is found somewhere in 'two'(indexOf is anything but '-1')
+			result.indexOf(one[i]) === -1){ //and at the same time 'one[i]' is not yet in the 'result' array
+			result.push(one[i]);
+			}
+	}
+	return result.join("");
+}
+commonCharacters("Hello, how are you today?!", "I'm good, thank you for asking!"); //"o,haryutd!"
+
