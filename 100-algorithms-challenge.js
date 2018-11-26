@@ -120,3 +120,22 @@ let commonCharacters = function(str1, str2){
 }
 commonCharacters("Hello, how are you today?!", "I'm good, thank you for asking!"); //"o,haryutd!"
 
+// 11 Rock paper scissors
+var rps = function(rounds){
+	var results = [];
+	var possibilities = ['R', 'P', 'S'];
+
+	var play = function(playedSoFar, rounds){
+		if (rounds === 0){ //if I already played through everything
+			results.push(playedSoFar);
+			return;
+		}
+		for (var i = 0; i < 3; i++){
+			play(playedSoFar+possibilities[i], rounds-1);//recursive call
+		}
+	}
+	play('', rounds);
+	return results;
+}
+var maple = rps(2);
+maple;
