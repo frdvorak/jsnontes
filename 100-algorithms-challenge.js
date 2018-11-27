@@ -139,3 +139,19 @@ var rps = function(rounds){
 }
 var maple = rps(2);
 maple;
+
+// 12 Check if every character in a string is UNIQUE - solution 1
+function isUnique(str){
+	for(let i = 0; i < str.length; i++){
+		if(str.lastIndexOf(str[i]) !== i){ //we are checking if 'lastIndexOf' the current letter is THE LAST index in that string. If the lastIndexOf is NOT the same as the first index it means we have a duplicate
+			return false;
+		}
+	}
+	return true;
+}
+console.log(
+	isUnique('abcdef'), 		//true
+	isUnique('89%^&*£'),		//true
+	isUnique('abcdabcd'),		//false
+	isUnique('mnopgrSTUVWXyz!'),	//true
+);
