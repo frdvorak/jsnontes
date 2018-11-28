@@ -155,3 +155,20 @@ console.log(
 	isUnique('abcdabcd'),		//false
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
+
+// 12 Check if UNIQUE - solution 2 with sort
+function isUnique(str){
+	const chars = str.split('').sort(); //sort alphabetically
+	for (let i = 1; i<= chars.length; i++){
+		if(chars[i] === chars[i-1]){  //if there are 2 same characters next to each other we have repeating string
+			return false
+		}
+	}
+	return true;
+}
+console.log(
+	isUnique('abcdef'), 		//true
+	isUnique('89%^&*£'),		//true
+	isUnique('abcdabcd'),		//false
+	isUnique('mnopgrSTUVWXyz!'),	//true
+);
