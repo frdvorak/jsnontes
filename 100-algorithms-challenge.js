@@ -172,3 +172,22 @@ console.log(
 	isUnique('abcdabcd'),		//false
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
+
+// 12 Check if UNIQUE - solution 3 with Object()
+function isUnique(str){
+	const chars = {};
+	for (let i = 0; i < str.length; i++){
+		const thisChar = str[i];
+		if (chars[thisChar] === true){
+			return false;
+		}
+		chars[thisChar] = true;
+	}
+	return true;
+}
+console.log(
+	isUnique('abcdef'), 		//true
+	isUnique('89%^&*£'),		//true
+	isUnique('abcdabcd'),		//false
+	isUnique('mnopgrSTUVWXyz!'),	//true
+);
