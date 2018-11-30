@@ -156,7 +156,7 @@ console.log(
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
 
-// 12 Check if UNIQUE - solution 2 with sort
+// 13 Check if UNIQUE - solution 2 with sort
 function isUnique(str){
 	const chars = str.split('').sort(); //sort alphabetically
 	for (let i = 1; i<= chars.length; i++){
@@ -173,7 +173,7 @@ console.log(
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
 
-// 12 Check if UNIQUE - solution 3 with Object()
+// 14 Check if UNIQUE - solution 3 with Object()
 function isUnique(str){
 	const chars = {};
 	for (let i = 0; i < str.length; i++){
@@ -182,6 +182,24 @@ function isUnique(str){
 			return false;
 		}
 		chars[thisChar] = true;
+	}
+	return true;
+}
+console.log(
+	isUnique('abcdef'), 		//true
+	isUnique('89%^&*£'),		//true
+	isUnique('abcdabcd'),		//false
+	isUnique('mnopgrSTUVWXyz!'),	//true
+);
+// 14 Check if UNIQUE - solution 3 with Set()
+function isUnique(str){
+	const chars = new Set(); //ES6, lets you store unige value of any type. A value un the set may only occur once
+	for (let i = 0; i < str.length; i++){
+		const thisChar = str[i];
+		if (chars.has(thisChar)){
+			return false;
+		}
+		chars.add(thisChar);
 	}
 	return true;
 }
