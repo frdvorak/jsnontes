@@ -191,7 +191,7 @@ console.log(
 	isUnique('abcdabcd'),		//false
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
-// 14 Check if UNIQUE - solution 3 with Set()
+// 14 Check if UNIQUE - solution 4 with Set()
 function isUnique(str){
 	const chars = new Set(); //ES6, lets you store unige value of any type. A value un the set may only occur once
 	for (let i = 0; i < str.length; i++){
@@ -202,6 +202,16 @@ function isUnique(str){
 		chars.add(thisChar);
 	}
 	return true;
+}
+console.log(
+	isUnique('abcdef'), 		//true
+	isUnique('89%^&*£'),		//true
+	isUnique('abcdabcd'),		//false
+	isUnique('mnopgrSTUVWXyz!'),	//true
+);
+// 15 Check if UNIQUE - solution 5 with Set() SIMPLER
+function isUnique(str){
+	return new Set(str).size === str.length; //Set() ignores duplicates, we are checking if size of the set it the same as the length of the original string, if there were no duplicates then they have same size and we return true 
 }
 console.log(
 	isUnique('abcdef'), 		//true
