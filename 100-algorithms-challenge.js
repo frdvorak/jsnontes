@@ -220,7 +220,7 @@ console.log(
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
 
-//16 Fibonacci
+// 16 Fibonacci
 function fibonacci(n){
 	const seq = [1,1];
 
@@ -238,3 +238,22 @@ function fibonacci(n){
 
 }
 fibonacci(5); //(5) [1, 1, 2, 3, 5]
+
+// 17 Memoized fibonacci
+const fibonacci = (function(){
+	const seq = [1,1];
+
+	return function(n){
+		if (n<2){
+			return seq.slice(0,n);
+		}
+		while (seq.length < n) {
+			const lastItem = seq[seq.length - 1];
+			const secondLastItem = seq[seq.length - 2];
+
+			seq.push(lastItem + secondLastItem);
+		}
+
+		return seq;
+	}
+})();
