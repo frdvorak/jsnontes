@@ -240,7 +240,7 @@ function fibonacci(n){
 fibonacci(5); //(5) [1, 1, 2, 3, 5]
 
 // 17 Memoized fibonacci
-const fibonacci = (function(){
+const memoizedFibonacci = (function(){
 	const seq = [1,1];
 
 	return function(n){
@@ -257,3 +257,16 @@ const fibonacci = (function(){
 		return seq;
 	}
 })();
+
+// 18 comparing algorithm speeds
+console.time('regular fibonacci');
+for (let i = 0; i < 10000; i++){
+	fibonacci(1000);
+}
+console.timeEnd('regular fibonacci') //regular fibonacci: 15062.875ms
+///----------///
+console.time('memoized fibonacci');
+for (let i = 0; i < 10000; i++){
+	memoizedFibonacci(1000);
+}
+console.timeEnd('memoized fibonacci') //memoized fibonacci: 3.06396484375ms
