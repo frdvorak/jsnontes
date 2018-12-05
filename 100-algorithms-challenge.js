@@ -1,4 +1,16 @@
 JS Algorithm Challenges
+// Big O Notation - is used to clasify how scalable and performant an algorithm or function is. It allows us to estimate the worst case runtime of an algorithm or how long it takes for the alhorithm to complete based on the input size. It informs us how much slower an alorithm will run if it's input size grows
+
+// Constant runtime, big 0 Notation: "0 (1)"
+// runtime is constant because as the input size increases, the number of operations we perform never changes, we only log the first element no matter how large the array gets.
+// as the input increases, the time it takes never changes
+// example: simple function that takes array and logs out the first element of the array
+function log(array){
+	console.log(array[0]);
+}
+log([1,2,3,4]); //1
+log([5,6,7,8,9,10]); //5
+
 
 // 1 - Remove duplicates from Array  - solution 1 - 
 let a = [1,2,5,2,1,8];
@@ -258,7 +270,7 @@ const memoizedFibonacci = (function(){
 	}
 })();
 
-// 18 comparing algorithm speeds
+///////////////////////////////// comparing algorithm speeds
 console.time('regular fibonacci');
 for (let i = 0; i < 10000; i++){
 	fibonacci(1000);
