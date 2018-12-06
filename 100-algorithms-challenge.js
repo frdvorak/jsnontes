@@ -11,6 +11,15 @@ function log(array){
 log([1,2,3,4]); //1
 log([5,6,7,8,9,10]); //5
 
+// Linear runtime, big O Notation "0 (n)"
+// as the input size increases our runtime will also increase proportionately.
+function logAll(array){
+	for (var i=0; i< array.length; i++){
+		console.log(array[i]);
+	}
+}
+logAll([1,2,3]); //  1 2 3 
+logAll([1,2,3,4,5,6]); // 1 2 3 4 5 6
 
 // 1 - Remove duplicates from Array  - solution 1 - 
 let a = [1,2,5,2,1,8];
