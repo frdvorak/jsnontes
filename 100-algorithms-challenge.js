@@ -1,7 +1,7 @@
 JS Algorithm Challenges
 // Big O Notation - is used to clasify how scalable and performant an algorithm or function is. It allows us to estimate the worst case runtime of an algorithm or how long it takes for the alhorithm to complete based on the input size. It informs us how much slower an alorithm will run if it's input size grows
 
-// Constant runtime, big 0 Notation: "0 (1)"
+// Constant runtime(time complexity), big 0 Notation: "0 (1)"
 // runtime is constant because as the input size increases, the number of operations we perform never changes, we only log the first element no matter how large the array gets.
 // as the input increases, the time it takes never changes
 // example: simple function that takes array and logs out the first element of the array
@@ -11,7 +11,7 @@ function log(array){
 log([1,2,3,4]); //1
 log([5,6,7,8,9,10]); //5
 
-// Linear runtime, big O Notation "0 (n)"
+// Linear runtime(time complexity), big O Notation "0 (n)"
 // as the input size increases our runtime will also increase proportionately.
 function logAll(array){
 	for (var i=0; i< array.length; i++){
@@ -20,6 +20,19 @@ function logAll(array){
 }
 logAll([1,2,3]); //  1 2 3 
 logAll([1,2,3,4,5,6]); // 1 2 3 4 5 6
+
+// Exponential runtime(time complexity), big O Notation "0(n^2)"
+// as we add 1 to the input the runtime makes an exponential jump
+// this is not very efficient/performant, as the input scales, the function becomes very inefficient
+function addAndLog(array){
+	for (var i = 0; i< array.length; i++){
+		for (var j = 0; j < array.length; j++){
+			console.log(array[i] + array[j]);
+		}
+	}
+}
+addAndLog(['A', 'B', 'C']); //AB AC BA BB BC ... 8 pairs logged 
+addAndLog(['A', 'B', 'C', 'D']); // 16 pairs logged
 
 // 1 - Remove duplicates from Array  - solution 1 - 
 let a = [1,2,5,2,1,8];
