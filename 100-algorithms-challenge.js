@@ -34,6 +34,34 @@ function addAndLog(array){
 addAndLog(['A', 'B', 'C']); //AB AC BA BB BC ... 8 pairs logged 
 addAndLog(['A', 'B', 'C', 'D']); // 16 pairs logged
 
+// Logarithic runtime(time complexity), big O Notation 0 (log n)
+// very performant, even if we have huge input we will only be looking at the fraction of the elements
+// array needs to be sorted numerically or alphabetically etc.
+// key is single value that we want to search for within our array
+
+function binarySearch(array, key){
+	var low = 0;
+	var high = array.length - 1;
+	var mid;
+	var element;
+
+	while(low <= high){
+		mid = Math.floor((low+high)/2,10);
+		element = array[mid];
+		if (element < key) {
+			low = mid + 1;
+		} else if (element > key) {
+			high = mid - 1;
+		} else {
+			return mid
+		}
+	}
+	return -1;
+}
+// exapmles don't work, looking into it
+// binarySearch([0,1,2,3,4,5,6,7,8,9,10], 5);
+// binarySearch(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'], 'f');
+
 // 1 - Remove duplicates from Array  - solution 1 - 
 let a = [1,2,5,2,1,8];
 let b = [];
