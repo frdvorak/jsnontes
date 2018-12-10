@@ -332,3 +332,40 @@ for (let i = 0; i < 10000; i++){
 	memoizedFibonacci(1000);
 }
 console.timeEnd('memoized fibonacci') //memoized fibonacci: 3.06396484375ms
+
+// 18 harmless random note
+function harmlessRansomeNote(noteText, magazineText){
+	// no punctuation, all is lower case
+	var noteArr = noteText.split(' ');
+	var magazineArr = magazineText.split(' ');
+	var magazineObj = {};
+	
+	// using a hashtable - we want 'magazineObj' to have every word in 'magazineArr' as a property on it and for each work we want it's value to be the number of times it appears in 'magazineArr'.
+	console.log(magazineObj);
+	
+	magazineArr.forEach(function(word){
+		if (!magazineObj[word]){ 
+			magazineObj[word] = 0; // if the current word is not a property on our magazineObj we put the property on the object and set it's value to 0;
+		}
+		magazineObj[word]++; // we increment that words value by 1
+	});
+	
+	var noteIsPossible = true;
+	noteArr.forEach(word => { // check if every word is present on our 'magazineObj', if it's not we do not have the right words to complete our note
+	
+	// if the word is present we want to decrement it's value by 1
+		if (magazineObj[word]){
+			magazineObj[word]--;
+			if (magazineObj[word] < 0){
+				noteIsPossible = false;
+			}
+		}
+		else {
+			noteIsPossible = false;
+		}
+		
+	});
+	return noteIsPossible;
+}
+harmlessRansomeNote('the magazine', 'this is all the magazine text we need'); //true
+harmlessRansomeNote('a magazine', 'this is all the magazine text we need'); //false
