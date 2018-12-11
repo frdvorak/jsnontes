@@ -333,7 +333,7 @@ for (let i = 0; i < 10000; i++){
 }
 console.timeEnd('memoized fibonacci') //memoized fibonacci: 3.06396484375ms
 
-// 18 harmless random note
+// 18 Harmless Random Note
 function harmlessRansomeNote(noteText, magazineText){
 	// no punctuation, all is lower case
 	var noteArr = noteText.split(' ');
@@ -369,3 +369,24 @@ function harmlessRansomeNote(noteText, magazineText){
 }
 harmlessRansomeNote('the magazine', 'this is all the magazine text we need'); //true
 harmlessRansomeNote('a magazine', 'this is all the magazine text we need'); //false
+
+// 19 is Palindrome (without regex)
+//word that is spelled the same way when it's read forwards and backwards
+function isPalindrome(string){
+	string = string.toLowerCase();
+	var charactersArr = string.split('');
+	var validCharacters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+	
+	var lettersArr = [];
+	charactersArr.forEach(char => {
+		if(validCharacters.indexOf(char) > -1){// if 'char' is in 'validCharacters'
+			lettersArr.push(char);
+		}
+	});
+	
+	if (lettersArr.join('') === lettersArr.reverse().join('')) return true;
+	else return false;
+}
+isPalindrome("Madam I'm Adam"); //true
+isPalindrome("Racecar");		//true
+isPalindrome("Apples and Pears");	//false
