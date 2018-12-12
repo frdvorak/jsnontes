@@ -370,7 +370,7 @@ function harmlessRansomeNote(noteText, magazineText){
 harmlessRansomeNote('the magazine', 'this is all the magazine text we need'); //true
 harmlessRansomeNote('a magazine', 'this is all the magazine text we need'); //false
 
-// 19 is Palindrome (without regex)
+// 19 isPalindrome (without regex)
 //word that is spelled the same way when it's read forwards and backwards
 function isPalindrome(string){
 	string = string.toLowerCase();
@@ -390,3 +390,31 @@ function isPalindrome(string){
 isPalindrome("Madam I'm Adam"); //true
 isPalindrome("Racecar");		//true
 isPalindrome("Apples and Pears");	//false
+
+// 20 Caesar Cipher
+function caesarCipher(str, num){
+ 	var lowerCaseString = str.toLowerCase();
+	var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+	num = num % alphabet.length;
+	var newString = '';
+
+	for (var i = 0; i < lowerCaseString.length; i++){
+		var currentLetter = lowerCaseString[i];
+		if (currentLetter === ' '){
+			newString += currentLetter;
+			continue;
+		}
+		var currentIndex = alphabet.indexOf(currentLetter);
+		var newIndex = currentIndex + num; 
+		if (newIndex > (alphabet.length)) newIndex = newIndex - alphabet.length;
+		if (newIndex < 0) newIndex = alphabet.length + newIndex;
+		if (str[i] === str[i].toUpperCase()) {
+			newString += alphabet[newIndex].toUpperCase();
+		}
+		else newString += alphabet[newIndex];
+	}
+	return newString;
+}
+caesarCipher('Zoo Keeper',2); 		//"Bqq Mggrgt"
+caesarCipher('Zoo Keeper',28); 		//"Bqq Mggrgt"
+caesarCipher('JavaScript',-900); 	//"TkfkCmbszd"
