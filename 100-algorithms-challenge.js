@@ -437,3 +437,14 @@ function reverseWords(string){
 };
 reverseWords('Hi, how are you today?'); //",iH woh era uoy ?yadot"
 reverseWords('this is a string of words'); //"siht si a gnirts fo sdrow"
+
+// 22 Reverse array in place
+function reverseArrayInPlace(arr){
+	for (var i = 0; i < arr.length / 2; i++){
+		var tempVar = arr[i];
+		arr[i] = arr[arr.length - 1 - i];
+		arr[arr.length - 1 - i] = tempVar;
+	}
+	return arr;
+}
+reverseArrayInPlace([1,2,3,4,5,6]); // [6, 5, 4, 3, 2, 1]
