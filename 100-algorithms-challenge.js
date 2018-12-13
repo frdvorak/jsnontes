@@ -408,6 +408,7 @@ function caesarCipher(str, num){
 		var newIndex = currentIndex + num; 
 		if (newIndex > (alphabet.length)) newIndex = newIndex - alphabet.length;
 		if (newIndex < 0) newIndex = alphabet.length + newIndex;
+		if (alphabet.indexOf(currentLetter)===-1) continue; // if the current letter is not letter of the alphabet move to the next character
 		if (str[i] === str[i].toUpperCase()) {
 			newString += alphabet[newIndex].toUpperCase();
 		}
@@ -418,3 +419,21 @@ function caesarCipher(str, num){
 caesarCipher('Zoo Keeper',2); 		//"Bqq Mggrgt"
 caesarCipher('Zoo Keeper',28); 		//"Bqq Mggrgt"
 caesarCipher('JavaScript',-900); 	//"TkfkCmbszd"
+caesarCipher('Zoo K.......)))eeper',28); //"Bqq Mggrgt"
+
+// 21 Reverse words (not the entire string, cannot use .reverse())
+function reverseWords(string){
+	var wordsArr = string.split(' ');
+	var reversedWordsArr = [];
+
+	wordsArr.forEach(word => {
+		var reversedWord = '';
+		for (var i = word.length - 1; i >=0; i--){
+			reversedWord += word[i];
+		}
+		reversedWordsArr.push(reversedWord);
+	});
+	return reversedWordsArr.join(' ')
+};
+reverseWords('Hi, how are you today?'); //",iH woh era uoy ?yadot"
+reverseWords('this is a string of words'); //"siht si a gnirts fo sdrow"
