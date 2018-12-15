@@ -505,3 +505,22 @@ function getMode(array){ // what numbers appear the most in our array
 }
 meanMedianMode([1,2,3,4,5,4,6,1]);//{mean: 3.25, median: 3.5, mode:[2,4]
 meanMedianMode([9,10,23,10,23,9]);//{mean: 14, median: 10, mode: []}
+
+// 23 Two Sum constant 0(n) time complexity
+// return array of two numbers from our array that add up to a sum
+// return array of arrays, it is ok for number to be used in multiple pairs
+function twoSum(numArray, sum){
+ var pairs = [];
+ var hastable = [];
+ for (var i=0; i<numArray.length; i++){
+ 	var currNum = numArray[i];
+ 	var counterpart = sum - currNum; 
+ 	if (hastable.indexOf(counterpart) !== -1){
+ 		pairs.push([currNum, counterpart]);
+ 	}
+ 	hastable.push(currNum);
+ }
+ return pairs;
+}
+console.log(twoSum([1,6,4,5,3,3],7));//[[6, 1],[3, 4],[3, 4]]
+console.log(twoSum([40,11,19,17,-12],28)); //[[17, 11],[-12, 40]]
