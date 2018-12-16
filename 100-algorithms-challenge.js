@@ -522,5 +522,21 @@ function twoSum(numArray, sum){
  }
  return pairs;
 }
-console.log(twoSum([1,6,4,5,3,3],7));//[[6, 1],[3, 4],[3, 4]]
+console.log(twoSum([1,6,4,5,3,3],7)); //[[6, 1],[3, 4],[3, 4]]
 console.log(twoSum([40,11,19,17,-12],28)); //[[17, 11],[-12, 40]]
+
+// 24 Binary Search (recursion)
+function binarySeach(numArray, key){ //given array must be sorted
+	var middleInx = Math.floor(numArray.length/2);	//we split given array in the middle
+	var middleElem = numArray[middleInx];
+
+	if (middleElem === key) return true; // base case 
+	else if (middleElem < key && numArray.length > 1) {
+			return binarySeach(numArray.splice(middleInx, numArray.length), key);
+	}	// first recursive case, if 'middleElem' is less than 'key'
+	else if (middleElem > key && numArray.length > 1){
+			return binarySearch(numArray.splice(0, middleInx), key);
+	}	// second recursive case, if 'middleElem' is more than 'key'
+	else return false; // when our middleElem is not the key we are looking for and numArray.length is 0 or 1
+};
+binarySeach([5,7,12,16,36,39,42,56,71], 56);
