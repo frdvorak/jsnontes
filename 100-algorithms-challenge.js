@@ -62,6 +62,7 @@ function binarySearch(array, key){
 // binarySearch([0,1,2,3,4,5,6,7,8,9,10], 5);
 // binarySearch(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'], 'f');
 
+//////////////////////////////////////////////////////
 // 1 - Remove duplicates from Array  - solution 1 - 
 let a = [1,2,5,2,1,8];
 let b = [];
@@ -73,6 +74,7 @@ for (let i = 0; i<len; i++){
 }
 console.log(b); //[1, 2, 5, 8]
 
+//////////////////////////////////////////////////////
 // 2 - Remove duplicates from Array - order of array is NOT important  - solution 2 - 
 let a = [1,2,5,2,1,8];
 let b = [];
@@ -87,6 +89,7 @@ for (let i=0; i<len; i++){
 }
 console.log(b); //[1, 2, 5, 8]
 
+//////////////////////////////////////////////////////
 // 3 - Remove duplicates from Array with Object  - solution 3 - 
 let a = [1,2,5,2,1,8];
 obj = {};
@@ -98,6 +101,7 @@ console.log(obj); //{1: true, 2: true, 5: true, 8: true}
 let b = Object.keys(obj); //this will give us all the keys in an array
 console.log(b); //["1", "2", "5", "8"]
 
+//////////////////////////////////////////////////////
 // 4 - Remove duplicates from Array - solution 4 - SHORTEST
 let a = [1,2,5,2,1,8];
 //let bSet = new Set //introduced in ES6, Set only stores unique values
@@ -120,7 +124,8 @@ genAnagrams('ABC');
 console.log(anagrams);
 */
 
-// 6 Find the longest word in an array FOR LOOP
+//////////////////////////////////////////////////////
+// 5 Find the longest word in an array FOR LOOP
 let arr = ['thisisalongword', 'thisisverylongword', 'shortword', 'mediumlengthword', 'thiswordmustbethelongestforsure'];
 function longestWord(data){
 	longestWord = '';
@@ -133,7 +138,8 @@ function longestWord(data){
 }
 longestWord(arr); //thiswordmustbethelongestforsure
 
-// 7 Find the longest word in a string
+//////////////////////////////////////////////////////
+// 6 Find the longest word in a string
 let str = ('It is a beautiful day outside!');
 function longestWord(data){
 	let words = data.split(' ');
@@ -147,7 +153,8 @@ function longestWord(data){
 }
 longestWord(str); //beautiful
 
-// 8 Find the longest word SORT
+//////////////////////////////////////////////////////
+// 7 Find the longest word SORT
 let str = ('It is a beautiful day outside!');
 function longestWord(data){
 	let words = data.split(' ');
@@ -156,7 +163,8 @@ function longestWord(data){
 }
 longestWord(str); 
 
-// 9 Reverse string with Reduce
+//////////////////////////////////////////////////////
+// 8 Reverse string with Reduce
 function reverseWord(word){
 	const reversedWord = word.split('').reduce((a,b)=>b+=a);
 	return reversedWord;
@@ -167,7 +175,8 @@ reverseWord('arrays are fun'); //"nuf era syarra"
 console.log(aaa);
 var aaa = "Hello World!!";
 
-// 10 Find common characters in 2 strings, ignore repeated letters and white space
+//////////////////////////////////////////////////////
+// 9 Find common characters in 2 strings, ignore repeated letters and white space
 let commonCharacters = function(str1, str2){
 	let one = str1.replace(/ /g,""); //remove empty space
 	let two = str2.replace(/ /g, "");
@@ -182,7 +191,8 @@ let commonCharacters = function(str1, str2){
 }
 commonCharacters("Hello, how are you today?!", "I'm good, thank you for asking!"); //"o,haryutd!"
 
-// 11 Rock paper scissors
+//////////////////////////////////////////////////////
+// 10 Rock paper scissors
 var rps = function(rounds){
 	var results = [];
 	var possibilities = ['R', 'P', 'S'];
@@ -202,7 +212,8 @@ var rps = function(rounds){
 var maple = rps(2);
 maple;
 
-// 12 Check if every character in a string is UNIQUE - solution 1
+//////////////////////////////////////////////////////
+// 11 Check if every character in a string is UNIQUE - solution 1
 function isUnique(str){
 	for(let i = 0; i < str.length; i++){
 		if(str.lastIndexOf(str[i]) !== i){ //we are checking if 'lastIndexOf' the current letter is THE LAST index in that string. If the lastIndexOf is NOT the same as the first index it means we have a duplicate
@@ -218,7 +229,8 @@ console.log(
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
 
-// 13 Check if UNIQUE - solution 2 with sort
+//////////////////////////////////////////////////////
+// 12 Check if UNIQUE - solution 2 with sort
 function isUnique(str){
 	const chars = str.split('').sort(); //sort alphabetically
 	for (let i = 1; i<= chars.length; i++){
@@ -235,7 +247,8 @@ console.log(
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
 
-// 14 Check if UNIQUE - solution 3 with Object()
+//////////////////////////////////////////////////////
+// 13 Check if UNIQUE - solution 3 with Object()
 function isUnique(str){
 	const chars = {};
 	for (let i = 0; i < str.length; i++){
@@ -253,6 +266,8 @@ console.log(
 	isUnique('abcdabcd'),		//false
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
+
+//////////////////////////////////////////////////////
 // 14 Check if UNIQUE - solution 4 with Set()
 function isUnique(str){
 	const chars = new Set(); //ES6, lets you store unige value of any type. A value un the set may only occur once
@@ -271,6 +286,8 @@ console.log(
 	isUnique('abcdabcd'),		//false
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
+
+//////////////////////////////////////////////////////
 // 15 Check if UNIQUE - solution 5 with Set() SIMPLER
 function isUnique(str){
 	return new Set(str).size === str.length; //Set() ignores duplicates, we are checking if size of the set it the same as the length of the original string, if there were no duplicates then they have same size and we return true 
@@ -282,6 +299,7 @@ console.log(
 	isUnique('mnopgrSTUVWXyz!'),	//true
 );
 
+//////////////////////////////////////////////////////
 // 16 Fibonacci
 function fibonacci(n){
 	const seq = [1,1];
@@ -301,6 +319,7 @@ function fibonacci(n){
 }
 fibonacci(5); //(5) [1, 1, 2, 3, 5]
 
+//////////////////////////////////////////////////////
 // 17 Memoized fibonacci
 const memoizedFibonacci = (function(){
 	const seq = [1,1];
@@ -333,6 +352,7 @@ for (let i = 0; i < 10000; i++){
 }
 console.timeEnd('memoized fibonacci') //memoized fibonacci: 3.06396484375ms
 
+//////////////////////////////////////////////////////
 // 18 Harmless Random Note
 function harmlessRansomeNote(noteText, magazineText){
 	// no punctuation, all is lower case
@@ -370,6 +390,7 @@ function harmlessRansomeNote(noteText, magazineText){
 harmlessRansomeNote('the magazine', 'this is all the magazine text we need'); //true
 harmlessRansomeNote('a magazine', 'this is all the magazine text we need'); //false
 
+//////////////////////////////////////////////////////
 // 19 isPalindrome (without regex)
 //word that is spelled the same way when it's read forwards and backwards
 function isPalindrome(string){
@@ -391,6 +412,7 @@ isPalindrome("Madam I'm Adam"); //true
 isPalindrome("Racecar");		//true
 isPalindrome("Apples and Pears");	//false
 
+//////////////////////////////////////////////////////
 // 20 Caesar Cipher
 function caesarCipher(str, num){
  	var lowerCaseString = str.toLowerCase();
@@ -421,6 +443,7 @@ caesarCipher('Zoo Keeper',28); 		//"Bqq Mggrgt"
 caesarCipher('JavaScript',-900); 	//"TkfkCmbszd"
 caesarCipher('Zoo K.......)))eeper',28); //"Bqq Mggrgt"
 
+//////////////////////////////////////////////////////
 // 21 Reverse words (not the entire string, cannot use .reverse())
 function reverseWords(string){
 	var wordsArr = string.split(' ');
@@ -438,6 +461,7 @@ function reverseWords(string){
 reverseWords('Hi, how are you today?'); //",iH woh era uoy ?yadot"
 reverseWords('this is a string of words'); //"siht si a gnirts fo sdrow"
 
+//////////////////////////////////////////////////////
 // 22 Reverse array in place
 function reverseArrayInPlace(arr){
 	for (var i = 0; i < arr.length / 2; i++){
@@ -449,6 +473,7 @@ function reverseArrayInPlace(arr){
 }
 reverseArrayInPlace([1,2,3,4,5,6]); // [6, 5, 4, 3, 2, 1]
 
+//////////////////////////////////////////////////////
 // 23 Mean Median Mode
 function meanMedianMode(array){
 	return {
@@ -506,7 +531,8 @@ function getMode(array){ // what numbers appear the most in our array
 meanMedianMode([1,2,3,4,5,4,6,1]);//{mean: 3.25, median: 3.5, mode:[2,4]
 meanMedianMode([9,10,23,10,23,9]);//{mean: 14, median: 10, mode: []}
 
-// 23 Two Sum constant 0(n) time complexity
+//////////////////////////////////////////////////////
+// 24 Two Sum constant 0(n) time complexity
 // return array of two numbers from our array that add up to a sum
 // return array of arrays, it is ok for number to be used in multiple pairs
 function twoSum(numArray, sum){
@@ -525,18 +551,41 @@ function twoSum(numArray, sum){
 console.log(twoSum([1,6,4,5,3,3],7)); //[[6, 1],[3, 4],[3, 4]]
 console.log(twoSum([40,11,19,17,-12],28)); //[[17, 11],[-12, 40]]
 
-// 24 Binary Search (recursion)
-function binarySeach(numArray, key){ //given array must be sorted
+//////////////////////////////////////////////////////
+// 25 Binary Search (recursion)
+// find number (key) in given array (numArray)
+function binarySearch(numArray, key){ //given array must be sorted
 	var middleInx = Math.floor(numArray.length/2);	//we split given array in the middle
 	var middleElem = numArray[middleInx];
 
 	if (middleElem === key) return true; // base case 
 	else if (middleElem < key && numArray.length > 1) {
-			return binarySeach(numArray.splice(middleInx, numArray.length), key);
+			return binarySearch(numArray.splice(middleInx, numArray.length), key);
 	}	// first recursive case, if 'middleElem' is less than 'key'
 	else if (middleElem > key && numArray.length > 1){
 			return binarySearch(numArray.splice(0, middleInx), key);
 	}	// second recursive case, if 'middleElem' is more than 'key'
 	else return false; // when our middleElem is not the key we are looking for and numArray.length is 0 or 1
 };
-binarySeach([5,7,12,16,36,39,42,56,71], 56);
+binarySearch([5,7,12,16,36,39,42,56,71], 56); //true
+binarySearch([5,7,12,16,36,39,42,56,71], 5); //true
+binarySearch([5,7,12,16,36,39,42,56,71], 15); // false, 15 is not in our array
+
+//////////////////////////////////////////////////////
+// 26 Bubble Sort
+function bubbleSort(array){
+	for (var i = array.length; i > 0; i--){
+		for (var j = 0; j < i; j++){
+			if (array[j] > array[j+1]){ //if its bigger we switch them
+				var temp = array[j];
+				array[j] = array[j+1];
+				array[j+1] = temp;
+			}
+		}
+	}
+	return array;
+}
+
+bubbleSort([5,3,8,2,1,4]);         	//(6) [1, 2, 3, 4, 5, 8]
+bubbleSort([20,20,31,56,1,12,12]); 	//(7) [1, 12, 12, 20, 20, 31, 56]
+bubbleSort([3,-9,-12,-1,8]);		//(5) [-12, -9, -1, 3, 8]
