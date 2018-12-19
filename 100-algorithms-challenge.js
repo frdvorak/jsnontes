@@ -589,3 +589,27 @@ function bubbleSort(array){
 bubbleSort([5,3,8,2,1,4]);         	//(6) [1, 2, 3, 4, 5, 8]
 bubbleSort([20,20,31,56,1,12,12]); 	//(7) [1, 12, 12, 20, 20, 31, 56]
 bubbleSort([3,-9,-12,-1,8]);		//(5) [-12, -9, -1, 3, 8]
+
+//////////////////////////////////////////////////////
+// 27 Sieve of Erathosthenes
+// find all prime numbers up to a given number
+// a prime number is a whole number greater than 1 whose only factors are 1 and itself
+function sieveOfErathocenes(n){
+	var primes = [];
+	for (var i = 0; i<=n; i++){
+			primes[i] = true; // create array from 0 to 'n' and set the value to 'true'
+	}
+	primes[0] = false; // 0 and 1 are never prime numbers
+	primes[1] = false;
+	for(var i=2; i<= Math.sqrt(n); i++){//outer for loop from 2 to square root 'n'
+		for (var j=2; j*i <=n; j++){
+			primes[i*j] = false;
+		}
+	}
+	var result = [];
+	for (var i=0; i<primes.length; i++){
+			if (primes[i]) result.push(i);
+	}
+	return result;
+}
+sieveOfErathocenes(10); //(4) [2, 3, 5, 7]
