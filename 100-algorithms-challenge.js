@@ -613,3 +613,31 @@ function sieveOfErathocenes(n){
 	return result;
 }
 sieveOfErathocenes(10); //(4) [2, 3, 5, 7]
+
+// 28 Merge Sort
+// break initial unordered array into many arrays of single element, then merge each of those until we are left with single fully merged array
+// 'mergeSort'(recursion) will take in single unsorted array and split the array into two halves
+function mergeSort(arr){
+    if (arr.length < 2) return arr;
+	var middleIndex = Math.floor(arr.length/2);
+	var firstHalf = arr.slice(0, middleIndex);
+	var secondHalf = arr.slice(middleIndex);
+	return merge(mergeSort(firstHalf) , mergeSort(secondHalf));
+}
+//'merge' will take two sorted arrays as parameters, it will merge those arrays into one sorted array and return it
+function merge(arr1, arr2){
+	var result = [];
+	while (arr1.length && arr2.length){ // run until both arrays are empty
+		var minElem;
+		if (arr1[0] < arr2[0]) minElem = arr1.shift();
+		else minElem = arr2.shift();
+		result.push(minElem);
+	}
+	if (arr1.length) result =  result.concat(arr1);
+	else result = result.concat(arr2);
+	return result;
+}
+mergeSort([6000,34,203,3,746,200,984,198,764,1,9,1]);
+// (12) [1, 1, 3, 9, 34, 198, 200, 203, 746, 764, 984, 6000]
+mergeSort([100,-20,40,-30,16,-100,-101]);
+//(7) [-101, -100, -30, -20, 16, 40, 100]
