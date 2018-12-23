@@ -616,7 +616,7 @@ sieveOfErathocenes(10); //(4) [2, 3, 5, 7]
 
 // 28 Merge Sort
 // break initial unordered array into many arrays of single element, then merge each of those until we are left with single fully merged array
-// 'mergeSort'(recursion) will take in single unsorted array and split the array into two halves
+// 'mergeSort'(recursion) will take in single unsorted array and split the array into two halves over and over until we have arrays of 1
 function mergeSort(arr){
     if (arr.length < 2) return arr;
 	var middleIndex = Math.floor(arr.length/2);
