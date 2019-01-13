@@ -1,4 +1,4 @@
-(function(global, $){
+;(function(global, $){
     var Greetr = function(firstName, lastName, language){
         return new Greetr.init(firstName, lastName, language);
     }
@@ -61,6 +61,22 @@
             this.language = lang;
             this.validate();
             return this;
+        },
+        HTMLGreeting: function(selector, formal){
+            if(!$){
+                throw 'jQuery not loaded';
+            }
+            if(!selector){
+                throw 'Missing jQuery selector'
+            }
+            var msg;
+            if (formal){
+                msg = this.formalGreting();
+            } else {
+                msg = this.greeting();
+            }
+            $(selector).html(msg);
+            return this;
         }
     };
 
@@ -69,6 +85,8 @@
         self.firstName = firstName || '';
         self.lastName = lastName || '';
         self.language = language || 'en';
+
+        self.validate();
     }
 
     Greetr.init.prototype = Greetr.prototype; // Any objects created with this function should point to Greetr.prototype, instead to each single instance of objects we create
