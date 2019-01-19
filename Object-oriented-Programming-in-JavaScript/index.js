@@ -30,7 +30,7 @@ class Stack {
 
     // count is a read-only property, we should not be able to change it from the outside, that's why we use a getter
     get count(){
-        return _items.get(this).lenght;
+        return _items.get(this).length;
     }
 }
 
