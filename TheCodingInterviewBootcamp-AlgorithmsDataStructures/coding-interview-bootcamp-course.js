@@ -41,3 +41,10 @@ function isPalindrome(str){
 };
 isPalindrome('racecar'); // true
 // not very efficient becuase we are checking second half of str which is not necessary
+
+// 6 Reverse Integer
+// The Math.sign() function returns the sign of a number, indicating whether the number is positive, negative or zero.
+function reverseInt(int){
+		return parseInt(String(int).split('').reverse().join('')) * Math.sign(int);
+};
+reverseInt(-159);
