@@ -48,3 +48,25 @@ function reverseInt(int){
 		return parseInt(String(int).split('').reverse().join('')) * Math.sign(int);
 };
 reverseInt(-159);
+
+// 7 Max char
+function maxChar(str){
+	const charMap = {};
+	let max = 0;
+	let maxChar = '';
+	for (let char of str){
+		if (charMap[char]){
+			charMap[char]++;
+		} else {
+			charMap[char] = 1;
+		}
+	}
+	for (let char in charMap){ // in for iteratin through object
+		if (charMap[char] > max){
+			max = charMap[char];
+			maxChar = char;
+		}
+	}
+	return maxChar;
+}
+maxChar('Hellooo!'); // "o"
