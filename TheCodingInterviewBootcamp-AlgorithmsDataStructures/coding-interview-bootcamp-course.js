@@ -70,3 +70,20 @@ function maxChar(str){
 	return maxChar;
 }
 maxChar('Hellooo!'); // "o"
+
+// 8 Array Chunking
+function chunk(array,size){
+	const chunked = []; //this holds all the chunks of data
+
+	for (let element of array){
+		const last = chunked[chunked.length - 1];//chunk we are currently working with
+		console.log(last);
+		if (!last || last.length === size){
+			chunked.push([element]); //push new chunk and put element in it
+		} else {
+			last.push(element);
+		}
+	}
+	return chunked;
+} 
+chunk([1,2,3,4,5,6,7,8,9], 2); // [1, 2][3, 4][5, 6][7, 8][9]
